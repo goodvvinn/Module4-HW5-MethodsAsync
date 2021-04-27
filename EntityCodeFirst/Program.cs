@@ -1,4 +1,5 @@
-﻿using System;
+﻿using System.Linq;
+using System;
 using System.Threading.Tasks;
 
 namespace EntityCodeFirst
@@ -8,7 +9,7 @@ namespace EntityCodeFirst
         public static async Task Main(string[] args)
         {
             await using (var context = new SampleContextFactory().CreateDbContext(args))
-            {
+        {
                await new EntitiesDataModify(context).EntityUpdateAsync();
             }
         }
