@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EntityCodeFirst.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20210423160458_ClentTableAddedAndFilled")]
-    partial class ClentTableAddedAndFilled
+    [Migration("20210424074934_TableClientAddedAndFilled")]
+    partial class TableClientAddedAndFilled
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

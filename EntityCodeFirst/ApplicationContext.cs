@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using EntityCodeFirst.Entities;
 using EntityCodeFirst.EntityConfiguration;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 
 namespace EntityCodeFirst
 {
@@ -15,8 +11,6 @@ namespace EntityCodeFirst
         public ApplicationContext(DbContextOptions<ApplicationContext> options)
             : base(options)
         {
-            // Database.EnsureDeleted();
-            // Database.EnsureCreated();
         }
 
         public DbSet<Employee> Employee { get; set; }
@@ -25,6 +19,12 @@ namespace EntityCodeFirst
         public DbSet<Title> Title { get; set; }
         public DbSet<EmployeeProject> EmployeeProject { get; set; }
         public DbSet<Client> Client { get; set; }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.EnableSensitiveDataLogging().LogTo(Console.WriteLine, LogLevel.Information);
+            optionsBuilder.UseLazyLoadingProxies();
+        }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

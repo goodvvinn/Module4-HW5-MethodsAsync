@@ -13,6 +13,6 @@ namespace EntityCodeFirst.Entities
         public string LastName { get; set; }
         public DateTime ContractDate { get; set; }
         public string CooperationType { get; set; }
-        public List<Project> Project { get; set; } = new List<Project>();
+        public virtual List<Project> Project { get; set; } = new List<Project>();
     }
 }

@@ -11,6 +11,6 @@ namespace EntityCodeFirst.Entities
         public int OfficeId { get; set; }
         public string Title { get; set; }
         public string Location { get; set; }
-        public List<Employee> Employee { get; set; } = new List<Employee>();
+        public virtual List<Employee> Employee { get; set; } = new List<Employee>();
     }
 }

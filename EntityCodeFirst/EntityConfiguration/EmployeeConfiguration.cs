@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using EntityCodeFirst.Entities;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -19,11 +17,11 @@ namespace EntityCodeFirst.EntityConfiguration
             builder.HasOne(d => d.Title)
                .WithMany(c => c.Employee)
                .HasForeignKey(d => d.TitleId)
-               .OnDelete(DeleteBehavior.Cascade);
+               .OnDelete(DeleteBehavior.Restrict);
             builder.HasOne(d => d.Office)
                .WithMany(p => p.Employee)
                .HasForeignKey(d => d.OfficeId)
-               .OnDelete(DeleteBehavior.Cascade);
+               .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }

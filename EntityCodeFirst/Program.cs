@@ -1,18 +1,16 @@
-﻿using System.Linq;
-using System;
-using System.IO;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using EntityCodeFirst.Entities;
-using Microsoft.Extensions.Configuration;
+﻿using System;
+using System.Threading.Tasks;
 
 namespace EntityCodeFirst
 {
     public class Program
     {
-        public static void Main(string[] args)
+        public static async Task Main(string[] args)
         {
-            Console.Read();
+            await using (var context = new SampleContextFactory().CreateDbContext(args))
+            {
+               await new EntitiesDataModify(context).EntityUpdateAsync();
+            }
         }
     }
 }

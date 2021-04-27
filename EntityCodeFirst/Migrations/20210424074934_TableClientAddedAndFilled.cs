@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace EntityCodeFirst.Migrations
 {
-    public partial class ClentTableAddedAndFilled : Migration
+    public partial class TableClientAddedAndFilled : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -46,16 +46,17 @@ namespace EntityCodeFirst.Migrations
                 principalTable: "Client",
                 principalColumn: "ClientId",
                 onDelete: ReferentialAction.Cascade);
+
             migrationBuilder.Sql("INSERT INTO Client(FirstName,LastName,ContractDate,CooperationType) VALUES('Martin','Scorseze', '2012-03-06','Partial')");
             migrationBuilder.Sql("INSERT INTO Client(FirstName,LastName,ContractDate,CooperationType) VALUES('Patric','Stewart', GETDATE(),'Partial')");
             migrationBuilder.Sql("INSERT INTO Client(FirstName,LastName,ContractDate,CooperationType) VALUES('Jimmy','Hendrix', GETDATE(),'Partial')");
             migrationBuilder.Sql("INSERT INTO Client(FirstName,LastName,ContractDate,CooperationType) VALUES('Grayce','Kelly', GETDATE(),'SemiPartnership')");
             migrationBuilder.Sql("INSERT INTO Client(FirstName,LastName,ContractDate,CooperationType) VALUES('John','BonJovi', GETDATE(),'Full')");
-            migrationBuilder.Sql("INSERT INTO Project(Name,Budget,StartedDate,ClientId) VALUES('Oslo','10000', GETDATE(),'1')");
-            migrationBuilder.Sql("INSERT INTO Project(Name,Budget,StartedDate,ClientId) VALUES('Praha','30000', GETDATE(),'1')");
-            migrationBuilder.Sql("INSERT INTO Project(Name,Budget,StartedDate,ClientId) VALUES('Helsinky','20000', GETDATE(),'1')");
-            migrationBuilder.Sql("INSERT INTO Project(Name,Budget,StartedDate,ClientId) VALUES('Berlin','40000', GETDATE(),'1')");
-            migrationBuilder.Sql("INSERT INTO Project(Name,Budget,StartedDate,ClientId) VALUES('Magdeburg','50000', GETDATE(),'1')");
+            migrationBuilder.Sql("INSERT INTO Project(Name,Budget,StartedDate,ClientId) VALUES('Oslo','10000', GETDATE(),1)");
+            migrationBuilder.Sql("INSERT INTO Project(Name,Budget,StartedDate,ClientId) VALUES('Praha','30000', GETDATE(),2)");
+            migrationBuilder.Sql("INSERT INTO Project(Name,Budget,StartedDate,ClientId) VALUES('Helsinky','20000', GETDATE(),2)");
+            migrationBuilder.Sql("INSERT INTO Project(Name,Budget,StartedDate,ClientId) VALUES('Berlin','40000', GETDATE(),3)");
+            migrationBuilder.Sql("INSERT INTO Project(Name,Budget,StartedDate,ClientId) VALUES('Magdeburg','50000', GETDATE(),4)");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
